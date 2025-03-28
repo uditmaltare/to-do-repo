@@ -1,11 +1,7 @@
 import express, { request } from 'express';
 import { Student } from './mongodb-file/student.model.js';
 let routes = express.Router();
-var students = [
-    { id: 1, name: 'John', age: 21 },
-    { id: 2, name: 'cena', age: 22 },
-    { id: 3, name: 'roman', age: 23 },
-]
+
 routes.route("")
     .get(async (req, res) => {
         let student = await Student.find()
@@ -20,7 +16,7 @@ routes.route("")
         let savedata = new Student(req.body)
         let saved = await savedata.save()
         if (saved) {
-            res.send("student added")
+            res.json(saved)
         } else {
             res.status(500).send("internal error")
         }

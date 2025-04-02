@@ -5,7 +5,7 @@ import { connectDB } from './mongodb-file/connection.js'
 let app = express()
 app.use(cors())
 app.use(express.json())
-app.use("/students", routes)
+app.use("/todo", routes)
 connectDB().then(() => {
     try {
 

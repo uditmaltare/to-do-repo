@@ -3,7 +3,9 @@ import routes from './routes.js';
 import cors from 'cors';
 import { connectDB } from './mongodb-file/connection.js'
 let app = express()
-app.use(cors())
+app.use(cors({
+    origin: "*"
+}))
 app.use(express.json())
 app.use("/todo", routes)
 connectDB().then(() => {
